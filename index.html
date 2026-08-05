@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Персонажи Bleach</title>
+<link rel="preload" as="image" href="https://wallpaperbat.com/down/6926829-seretei-wallpaper-1920x1080-raw-image">
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+body {
+  background-color: #0b0e14;
+  background-image: url("https://wallpaperbat.com/down/6926829-seretei-wallpaper-1920x1080-raw-image");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  padding-top: 30px;
+  margin: 0;
+  font-size: 32px;
+  letter-spacing: 4px;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #ffffff 0%, #f5c518 55%, #b8622e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(245, 197, 24, 0.35);
+}
+.ambient-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: rgba(102, 180, 255, 0.12);
+  border-radius: 50%;
+  filter: blur(120px);
+  top: -100px;
+  left: -100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.quote {
+  text-align: center;
+  margin: 40px auto 0;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+.quote-box {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.35);
+  border-left: 5px solid #f5c518;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  color: whitesmoke;
+}
+.quote blockquote {
+  font-size: 26px;
+  font-style: italic;
+  margin: 0 0 15px;
+}
+.quote p {
+  font-size: 18px;
+  opacity: 0.8;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  position: relative;
+  z-index: 1;
+  align-items: flex-start;
+}
+
+.profile {
+  width: 300px;
+  height: 780px;
+  perspective: 1200px;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  animation: popIn 0.75s ease-out forwards;
+  position: relative;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.profile.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(20, 20, 20, 0.9);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow-y: auto;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.flip-hint {
+  align-self: center;
+  display: inline-block;
+  margin-top: 125px;
+  padding: 10px 22px;
+  border: 1px solid transparent;
+  border-radius: 16px;
+  font-size: 23px;
+  color: #f5c518;
+  background:
+    linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9)) padding-box,
+    linear-gradient(135deg, #f5c518, #b8622e) border-box;
+  box-shadow: 0 0 16px rgba(245, 197, 24, 0.25);
+}
+
+
+@keyframes popIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile h2 {
+  font-size: 26px;
+  margin: 0 0 20px;
+}
+
+.profile img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease;
+}
+
+.profile p {
+  font-size: 14px;
+  color: whitesmoke;
+  text-align: left;
+}
+
+.profile h3 {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.profile ul {
+  text-align: left;
+  padding-left: 22px;
+  margin: 0;
+}
+
+.profile li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+  color: whitesmoke;
+  flex: 1;
+}
+
+@media (hover: hover) {
+  .profile:hover {
+    border-color: rgba(120, 180, 255, 0.6);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.5),
+      0 0 20px rgba(120, 180, 255, 0.25);
+    transform: translateY(-10px);
+  }
+
+  .profile:hover img {
+    transform: scale(1.05);
+  }
+
+  .to-top:hover {
+    background: rgba(245, 197, 24, 0.15);
+  }
+}
+
+.Rukia   { color: lightblue; text-shadow: 0 0 17px lightblue; }
+.Ichigo  { color: orange;    text-shadow: 0 0 17px orange; }
+.Orihime { color: coral;     text-shadow: 0 0 17px coral; }
+.Shinji  { color: yellow;    text-shadow: 0 0 17px yellow; }
+.Soi-Fon { color: gold;      text-shadow: 0 0 17px gold; }
+.Renji   { color: crimson;   text-shadow: 0 0 17px crimson; }
+.Byakuya { color: pink;      text-shadow: 0 0 17px pink; }
+.Kyoraku {color: darkgreen;  text-shadow: 0 0 17px darkgreen; }
+.Yoruichi{ color: mediumpurple; text-shadow: 0 0 17px mediumpurple; }
+.Aizen   { color: steelblue; text-shadow: 0 0 17px steelblue; }
+.Ishida  { color: cyan; text-shadow: 0 0 17px cyan; }
+.Kenpachi{ color: firebrick; text-shadow: 0 0 17px firebrick; }
+.Nel     { color: mediumseagreen; text-shadow: 0 0 17px mediumseagreen; }
+ .Gin     { color: silver; text-shadow: 0 0 17px silver; }
+.to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 197, 24, 0.4);
+  background: rgba(20, 20, 20, 0.9);
+  color: #f5c518;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (max-width: 700px) {
+  body { background-attachment: scroll; }
+  .profile { width: 100%; max-width: 340px; }
+  .container { padding: 20px; gap: 24px; }
+  .quote-box { padding: 24px; }
+  .quote blockquote { font-size: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile { animation: none; opacity: 1; transform: none; }
+  .profile, .profile img, .card-inner, .to-top { transition: none; }
+}
+
+.profile li:last-child {
+  margin-bottom: 0;
+}
+
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.not-found h1 {
+  font-size: 96px;
+  margin: 0;
+  color: #f5c518;
+  text-shadow: 0 0 30px rgba(245, 197, 24, 0.4);
+}
+
+.not-found p {
+  font-size: 18px;
+  color: whitesmoke;
+  max-width: 400px;
+  margin: 16px 0 24px;
+}
+
+.not-found a {
+  color: #f5c518;
+  text-decoration: none;
+  border: 1px solid rgba(245, 197, 24, 0.4);
+  border-radius: 10px;
+  padding: 10px 20px;
+  transition: background 0.2s ease;
+}
+
+@media (hover: hover) {
+  .not-found a:hover {
+    background: rgba(245, 197, 24, 0.15);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="ambient-glow"></div>
+<h1 class="page-title">Персонажи Bleach</h1>
+<section class="quote">
+<div class="quote-box">
+<blockquote>«Восхищение — чувство, наиболее далёкое от понимания».</blockquote>
+<p>— Айзен</p>
+</div>
+</section>
+<div class="container">
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Rukia">Рукия Кучики</h2><img alt="Рукия Кучики" src="https://i.pinimg.com/736x/a5/df/6f/a5df6fb138ce7fa30518aa7263535abb.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Рукия Кучики - сложный и благородный персонаж, сочетающий скромность, элегантность и внутреннюю силу. Она сдержанная, сильная и дисциплинированная, но порой бывает весёлой и раздражительной.</p><h3>Факты о ней</h3><ul>
+<li>Занпакто — Соде но Шираюки, банкай — «<strong>Хакка но Тогаме</strong>», покрывает всё вокруг сакурами изо льда</li>
+<li>Обожает животных, особенно зайцев — рисовать умеет только их, причём весьма своеобразно, судя по реакции окружающих</li>
+<li>Мой кинн — персонаж, с которым ассоциирую себя сильнее всего среди всех шинигами</li>
+<li>Её банкай способен убить её саму быстрее, чем врага — настолько мощная техника, что обращаться с ней приходится крайне осторожно</li>
+<li>Изначально должна была стать героиней с косой, а не с мечом — такую версию Кубо в итоге отклонил ещё на стадии набросков</li>
+<li>Сестра Хисана вышла замуж за Бьякую и позже погибла от болезни, так и не признавшись мужу, что всю жизнь искала родную сестру</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Ichigo">Ичиго Куросаки</h2><img alt="Ичиго Куросаки" src="https://i.pinimg.com/1200x/04/d5/95/04d5951cd9b48d06d8530642774f2534.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Ичиго Куросаки - главный герой. Он слегка вспыльчивый и упрямый, но когда его близким угрожает опасность, он никогда не останется в стороне и будет защищать их до последнего.</p><h3>Факты о нём</h3><ul>
+<li>Владеет занпакто «<strong>Зангецу</strong>», а также банкаем «<strong>Тэнса Зангецу</strong>» — оружие принимает облик его внутреннего пустого</li>
+<li>Получил силы шинигами в 15 лет, приняв их от Рукии Кучики ценой почти всех её собственных сил</li>
+<li>Объединяет в себе силы пустого, шинигами и квинси — редчайшее сочетание, которого больше ни у кого во вселенной нет</li>
+<li>Несмотря на грозный вид и вечно нахмуренные брови, обожает шоколад куда больше, чем готов признать вслух</li>
+<li>По одной из теорий — реинкарнация Кайена Шиба, погибшего лейтенанта, чью смерть Рукия так и не смогла себе простить</li>
+<li>Любит читать мангу и классику, например Шекспира — увлечение, которое почти никак не вяжется с репутацией драчуна</li>
+<li>«Ичиго» может переводиться как «клубника», «один» (истинный путь) или обозначать «защитник» — отец специально выбрал имя с двойным смыслом</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Orihime">Орихимэ Иноуэ</h2><img alt="Орихимэ Иноуэ" src="https://i.pinimg.com/736x/91/71/22/917122336507a562d9e297a204554dfc.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Орихимэ Иноуэ - легкомысленная девушка. Добрая, оптимистичная, независимая и заботливая, с очень развитым воображением.</p><h3>Факты о ней</h3><ul>
+<li>«<strong>Сюн Сюн Рикка</strong>» — главный козырь в бою: шесть духов-фей не лечат раны, а полностью отменяют сам факт повреждения</li>
+<li>Пацифист: ей тяжело смотреть на раненых, даже союзников — искренне мечтает, чтобы конфликты решались без единой драки</li>
+<li>Осталась без родителей — её вырастил старший брат Сора, который позже погиб и на время стал пустым прямо у неё на глазах</li>
+<li>По задумке должна была умереть в начале истории, но автор передумал, и под конец она стала женой Ичиго</li>
+<li>Её лучшая подруга — Тацуки, знавшая о её чувствах к Ичиго ещё до того, как это стало очевидно всем остальным</li>
+<li>Похищена Айзеном из-за «<strong>Соутен Кисшун</strong>» — техники, обращающей время вспять, которую он планировал использовать в своих целях</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Shinji">Шинджи Хирако</h2><img alt="Шинджи Хирако" src="https://i.pinimg.com/736x/2e/c1/a4/2ec1a4dc45a4dac0e0de8ba7e1cf2115.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Шинджи Хирако - харизматичный, легкомысленный и часто комичный персонаж. Он дерзок, любит подшучивать, но при необходимости проявляет мудрость.</p><h3>Факты о нём</h3><ul>
+<li>Капитан 5 отряда «Готей 13» — с этой должности его сместил как раз Айзен, устроив против него заговор</li>
+<li>Его занпакто — «Саканаде», способный менять местами чувства цели, так что верх и низ путаются в один миг</li>
+<li>Он редко высвобождает свой банкай, использует его лишь в самых редких и по-настоящему безвыходных случаях</li>
+<li>Кинн Мирона — ещё один персонаж из личного списка</li>
+<li>По одной из версий, его банкай называется «<strong>Сакашима Екошима Хаппофусараги</strong>» и заставляет врагов драться друг против друга — поэтому Шинджи старается не применять его рядом с союзниками</li>
+<li>Искренне полюбил человеческую культуру конца XX века живя в изгнании — увлёкся джазом и до сих пор носит галстуки</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Soi-Fon">Сой-Фон</h2><img alt="Сой-Фон" src="https://i.pinimg.com/1200x/6e/d2/a6/6ed2a6df3cc3563a3997a72a81330cf7.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Сой-Фон твёрдо верна, решительна и непреклонна в своих убеждениях. Она сдержанная, серьёзная и хладнокровная даже к своим подчинённым. Одержима Йоруичи Шихоин.</p><h3>Факты о ней</h3><ul>
+<li>Её банкай «<strong>Джакухо Райкобен</strong>» превращает руку в подобие пушки — выстрел получается медленным, зато один точный удар пробивает что угодно</li>
+<li>Капитан 2 отряда «Готей 13» и, как и Йоруичи когда-то, по совместительству командующая тайными силами Онмицукидо</li>
+<li>Не любит кошек — иронично, ведь объект её обожания, Йоруичи, регулярно превращается именно в чёрную кошку</li>
+<li>Боготворила Йоруичи, пока та была в Обществе душ; когда Йоруичи покинула его, Сой-Фон восприняла это как предательство</li>
+<li>Самый быстрый капитан в «Готей 13», уступает в скорости разве что своей бывшей наставнице Йоруичи</li>
+<li>Её настоящее имя — Шаолин-Фон; имя «Сой-Фон» она взяла позже, уже будучи в рядах «Готей 13»</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Renji">Ренджи Абарай</h2><img alt="Ренджи Абарай" src="https://i.pinimg.com/736x/dc/45/a1/dc45a14933953199d87e9c419e1b3646.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Ренджи Абарай - довольно дерзкий и вспыльчивый шинигами. Обладает твёрдой решимостью и преданностью. Он архетип типичного боевого персонажа со сложным характером.</p><h3>Факты о нём</h3><ul>
+<li>У них с Ичиго на удивление схожий стиль боя — прямолинейный и силовой, об этом в шутку говорил даже Ясутора Садо (Чад)</li>
+<li>Его цель — превзойти по силе Бьякую Кучики, своего капитана, которому он проиграл в самом начале истории и до сих пор не может это забыть</li>
+<li>Лейтенант 6 отряда «Готей 13», служит под началом Бьякуи Кучики, хотя когда-то они были скорее соперниками</li>
+<li>Шикай «Забимару» разделяет занпакто на сегменты, позволяя ему удлиняться и атаковать подобно хлысту</li>
+<li>Истинный банкай — «<strong>Соо Забимару</strong>» — с огромной обезьяньей рукой и змееподобным клинком, одна из самых причудливых форм банкая во всей серии</li>
+<li>Рукия Кучики — его главный мотиватор ещё с детства: ради неё он готов становиться сильнее, даже когда шансов почти нет</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Byakuya">Бьякуя Кучики</h2><img alt="Бьякуя Кучики" src="https://i1-c.pinimg.com/1200x/fb/04/f0/fb04f0cb47974349ac813b7895d2213b.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Бьякуя Кучики - часто ведёт себя в аристократической манере, апатичен и невозмутим по отношению к другим. Нередко ставит себя выше остальных, но имеет чувства к дорогим ему людям.</p><h3>Факты о нём</h3><ul>
+<li>Занимает должность капитана 6 отряда «Готей 13» уже более сотни лет, его нынешний лейтенант — Ренджи Абарай</li>
+<li>Высвобождает и шикай, и банкай одним и тем же словом — «Осыпайся», без отдельной команды для каждой формы</li>
+<li>Шикай Бьякуи превращает занпакто в тысячу с лишним смертоносных лезвий, похожих на лепестки сакуры</li>
+<li>Бьякуя невероятно быстр, но по чистой скорости всё же уступает и Сой-Фон, и Йоруичи Шихоин</li>
+<li>Однажды принял Рукию в благородную семью Кучики — во многом ради памяти о покойной жене Хисане</li>
+<li>Состоит в клубе каллиграфии в качестве председателя — увлечение, разительно контрастирующее с его боевой репутацией</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Kyoraku">Шунсуй Кераку</h2><img alt="Шунсуй Кераку" src="https://i.pinimg.com/1200x/0f/13/f7/0f13f79af73fc255eae1eeca727d2121.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Шунсуй Кераку - кажется ленивым и беспечным, но за этим скрывается один из сильнейших капитанов "Готей 13". В бою он хладнокровен, мудр и всегда готов защитить своих союзников.</p><h3>Факты о нем</h3><ul>
+<li>Раньше занимал должность капитана 8 отряда "Готей 13", позже стал капитаном-командующим</li>
+<li>Его занпакто считается одним из самых необычных в сообществе душ</li>
+<li>Его Шикай и Банкай основаны на концепции детских игр в реальность. Если правила игры установлены, их обязаны соблюдать все, включая самого Кераку</li>
+<li>Также как и Укитаке, Кераку был учеником Генрюсая Ямамото</li>
+<li>Предпочитает решать конфликты мирным путем</li>
+<li>Не прочь выпить в свободное время</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Yoruichi">Йоруичи Шихоин</h2><img alt="Йоруичи Шихоин" src="https://i.pinimg.com/control1/1200x/cb/52/4d/cb524d42ec3d73829d4e084da5376608.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Йоруичи Шихоин - дерзкая, уверенная в себе и невероятно харизматичная. Обожает поддразнивать окружающих и держаться легко, но в бою становится собранной и хладнокровной, полагаясь на скорость и голые руки куда больше, чем на занпакто.</p><h3>Факты о ней</h3><ul>
+<li>Бывшая капитан 2 отряда и командующая Онмицукидо — тайной силой «Готей 13»</li>
+<li>Мастер сюмпо — считается самым быстрым бойцом в истории Общества душ</li>
+<li>Занпакто носит с собой, но почти никогда не применяет его в бою — сражается голыми руками</li>
+<li>Фирменная техника — «<strong>Шунко</strong>», сочетание рукопашного боя и кидо</li>
+<li>Умеет превращаться в чёрную кошку</li>
+<li>Была наставницей Сой-Фон в Обществе душ; близкая подруга и союзница Урахары Киске</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Aizen">Айзен Соскэ</h2><img alt="Айзен Соскэ" src="https://i.pinimg.com/control1/1200x/04/ec/f2/04ecf20035482b23a0c12fca78b7bb92.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Айзен Соскэ - хладнокровный и предельно расчётливый персонаж, который годами скрывал истинные намерения под маской образцового капитана. Говорит спокойно и снисходительно даже в разгар битвы, а любое поражение воспринимает как часть большего замысла.</p><h3>Факты о нём</h3><ul>
+<li>Занпакто «<strong>Кёка Суйгецу</strong>» — полный гипноз: тот, кто хоть раз увидел клинок обнажённым, больше не отличает иллюзию от реальности</li>
+<li>Бывший капитан 5 отряда «Готей 13» — до предательства считался одним из самых уважаемых</li>
+<li>Инсценировал собственную смерть, чтобы скрыть настоящий план</li>
+<li>Внедрил себе в грудь Хогёку — артефакт, стирающий грань между шинигами и пустым</li>
+<li>Обожает чай — пьёт его невозмутимо даже в разгар самых напряжённых моментов</li>
+<li>После поражения от Ичиго приговорён к 20 000 лет заключения в Мукэне — самом глубоком уровне тюрьмы Общества душ</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Ishida">Урю Исида</h2><img alt="Урю Исида" src="https://i.pinimg.com/1200x/91/9d/e0/919de0b77a73625cf7743a211511cd8d.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Урю Исида - гордый, педантичный и очень принципиальный квинси, который поначалу презирает синигами, но постепенно становится одним из самых надёжных союзников Ичиго. Держится холодно и с достоинством, но за этим скрывается глубокая забота о друзьях.</p><h3>Факты о нём</h3><ul>
+<li>Внук Соукена Исиды — квинси, погибшего от пустого на глазах у Урю, пока синигами не успели прийти на помощь; это и породило его неприязнь к ним</li>
+<li>Сложные отношения с отцом Рюкеном — тот считает путь квинси бесполезным и выбрал карьеру врача</li>
+<li>Сражается луком, полностью сформированным из духовной энергии, а не мечом</li>
+<li>В бою с Маюри Куроцучи применил «<strong>Letzt Stil</strong>» — мощнейшую, но нестабильную технику, после которой на время лишился сил</li>
+<li>Позже осваивает «<strong>Vollständig</strong>» — усовершенствованную версию той же идеи, уже без разрушительных последствий</li>
+<li>Прекрасно шьёт — неожиданное хобби для такого серьёзного персонажа</li>
+</ul></div></div></div>
+<div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Kenpachi">Кенпачи Зараки</h2><img alt="Кенпачи Зараки" src="https://i.pinimg.com/control1/1200x/da/86/66/da8666cd81c08d792cce4df9497f80fd.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Кенпачи Зараки - дикий, свирепый и абсолютно бесстрашный капитан 11 отряда, который живёт ради одного — по-настоящему сильного противника. Груб и прямолинеен, но по-своему предан немногим, кого считает своими.</p><h3>Факты о нём</h3><ul>
+<li>Занпакто «<strong>Нозараши</strong>» — большую часть истории Кенпачи вообще не мог его услышать и сражался только запечатанным клинком</li>
+<li>Особая повязка на правом глазу от 12 отряда специально гасит большую часть его силы — носит добровольно, чтобы бои длились дольше</li>
+<li>Нашёл в Руконгае безымянную девочку и сам назвал её Ячиру, сделав своим лейтенантом</li>
+<li>Позже выясняется, что Ячиру — не просто ребёнок, а живое воплощение духа его же занпакто</li>
+<li>Шрам через лицо и глаз получил ещё ребёнком в поединке с Ретсу Уноханой — та самая схватка впервые подарила ему настоящее удовольствие от боя</li>
+<li>Сражается ради самого боя, а не ради ранга или долга — травмы и смерть считает честной платой за хорошую схватку</li>
+</ul></div></div></div>
+  <div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Nel">Нелл</h2><img alt="Нелл" src="https://i.pinimg.com/control1/1200x/bf/9d/98/bf9d9808ddb66cd25054900ce616eb9f.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Нелл - в детском облике невероятно игривая, простодушная и добрая, полная противоположность большинству эспады. Во взрослой форме — благородная и рассудительная воительница, которая дерётся только по весомой причине, а не ради удовольствия от убийства.</p><h3>Факты о ней</h3><ul>
+<li>Её полное имя — Неллиель Ту Одельшванк</li>
+<li>Бывшая 3-я Эспада (Терсера) в армии Айзена — редкий случай, когда женщина занимала настолько высокий ранг среди эспады</li>
+<li>Нноитра Гига люто завидовал именно тому, что женщина оказалась сильнее него, и сговорился с Сзаелапоро Гранцем, чтобы устроить на неё засаду</li>
+<li>В той засаде ей раскололи маску и высосали большую часть сил — из-за этого она превратилась в ребёнка и потеряла всю память</li>
+<li>Пеше и Дондочакка, её бывшие подчинённые, с тех пор притворяются её старшими братьями, чтобы защищать её в облике ребёнка</li>
+<li>Полное освобождение называется «<strong>Гамуза</strong>» — возвращает ей взрослую форму, память и полную силу</li>
+<li>В отличие от большинства эспады, дралась только по весомой причине — бессмысленную жестокость Нноитры считала звериной, а не воинской</li>
+</ul></div></div></div>
+  <div class="profile">
+<div class="card-inner"><div class="card-front"><h2 class="Gin">Гин Ичимару</h2><img alt="Гин Ичимару" src="https://i.pinimg.com/control1/1200x/59/b2/af/59b2af1f5be8a424766ecbe76c1a5a77.jpg"/><span class="flip-hint">нажми, чтобы узнать информацию ↻</span></div><div class="card-back"><p>Гин Ичимару - загадочный и обманчиво добродушный персонаж с вечной хитрой улыбкой на лице и почти всегда прикрытыми глазами. За внешней несерьёзностью скрывается человек, который сто с лишним лет играл роль преданного слуги ради одной-единственной цели.</p><h3>Факты о нём</h3><ul>
+<li>Бывший капитан 3 отряда «Готей 13», его лейтенант — Изуру Кира</li>
+<li>Занпакто «<strong>Синсо</strong>» способен мгновенно удлиняться на огромное расстояние с разрушительной силой удара</li>
+<li>В детстве нашёл в Руконгае избитую и лишённую части души Рангику Мацумото — с тех пор она единственный человек, о ком он искренне заботится</li>
+<li>Узнав, что душу Рангику похитил именно Айзен ради Хогёку, окончил академию синигами всего за год и годами готовил план мести</li>
+<li>Больше века изображал преданного соратника Айзена, тщательно изучая слабости его занпакто</li>
+<li>Попытка убить Айзена провалилась — тот уже успел получить силу Хогёку и пережил удар, ставший бы смертельным для кого угодно другого</li>
+</ul></div></div></div>
+</div>
+<button aria-label="Наверх" class="to-top" id="toTop" type="button">↑</button>
+
+<script>
+document.querySelectorAll('.profile').forEach(card => {
+  card.addEventListener('click', () => card.classList.toggle('flipped'));
+});
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  toTop.classList.toggle('visible', window.scrollY > 400);
+});
+toTop.addEventListener('click', () => {
+  const behavior = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+  window.scrollTo({ top: 0, behavior });
+});
+</script>
+</body>
+</html>
