@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Персонажи Bleach</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0e14'/%3E%3Cpath d='M32 14C40 14 46 20 46 28C46 34 40 40 32 50C24 40 18 34 18 28C18 20 24 14 32 14Z' fill='%23f5c518'/%3E%3C/svg%3E">
 <link rel="preload" as="image" href="https://wallpaperbat.com/down/6926829-seretei-wallpaper-1920x1080-raw-image">
 <style>
 html, body {
@@ -48,6 +49,44 @@ body {
   left: -100px;
   pointer-events: none;
   z-index: 0;
+}
+
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.petal {
+  position: absolute;
+  top: -20px;
+  background: linear-gradient(135deg, #ffd9e8, #ff9ec4);
+  border-radius: 0% 100% 0% 100%;
+  animation-name: fallPetal;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fallPetal {
+  0% {
+    transform: translate(0, -10vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.85; }
+  25% { transform: translate(20px, 25vh) rotate(90deg); }
+  50% { transform: translate(-15px, 50vh) rotate(180deg); }
+  75% { transform: translate(25px, 75vh) rotate(270deg); }
+  90% { opacity: 0.85; }
+  100% {
+    transform: translate(-10px, 110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petals { display: none; }
 }
 
 .quote {
@@ -574,6 +613,27 @@ sortSelect.addEventListener('change', () => {
   }
   sorted.forEach(card => container.appendChild(card));
 });
+
+const petalsContainer = document.createElement('div');
+petalsContainer.className = 'petals';
+petalsContainer.setAttribute('aria-hidden', 'true');
+document.body.prepend(petalsContainer);
+
+const PETAL_COUNT = 28;
+for (let i = 0; i < PETAL_COUNT; i++) {
+  const petal = document.createElement('span');
+  petal.className = 'petal';
+  const size = 8 + Math.random() * 10;
+  const left = Math.random() * 100;
+  const duration = 9 + Math.random() * 10;
+  const delay = Math.random() * 15;
+  petal.style.left = left + 'vw';
+  petal.style.width = size + 'px';
+  petal.style.height = size + 'px';
+  petal.style.animationDuration = duration + 's';
+  petal.style.animationDelay = '-' + delay + 's';
+  petalsContainer.appendChild(petal);
+}
 </script>
 </body>
 </html>
