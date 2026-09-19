@@ -232,6 +232,21 @@ body {
   transform: rotateY(180deg);
 }
 
+.card-front:has(.Rukia)    { --char-rgb: 173, 216, 230; }
+.card-front:has(.Ichigo)   { --char-rgb: 255, 165, 0; }
+.card-front:has(.Orihime)  { --char-rgb: 255, 127, 80; }
+.card-front:has(.Shinji)   { --char-rgb: 255, 255, 0; }
+.card-front:has(.Soi-Fon)  { --char-rgb: 255, 215, 0; }
+.card-front:has(.Renji)    { --char-rgb: 220, 20, 60; }
+.card-front:has(.Byakuya)  { --char-rgb: 255, 192, 203; }
+.card-front:has(.Kyoraku)  { --char-rgb: 0, 100, 0; }
+.card-front:has(.Yoruichi) { --char-rgb: 147, 112, 219; }
+.card-front:has(.Aizen)    { --char-rgb: 70, 130, 180; }
+.card-front:has(.Ishida)   { --char-rgb: 0, 255, 255; }
+.card-front:has(.Kenpachi) { --char-rgb: 178, 34, 34; }
+.card-front:has(.Nel)      { --char-rgb: 60, 179, 113; }
+.card-front:has(.Gin)      { --char-rgb: 192, 192, 192; }
+
 .flip-hint {
   align-self: center;
   display: inline-block;
@@ -240,11 +255,11 @@ body {
   border: 1px solid transparent;
   border-radius: 16px;
   font-size: 23px;
-  color: #f5c518;
+  color: rgb(var(--char-rgb, 245, 197, 24));
   background:
     linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9)) padding-box,
-    linear-gradient(135deg, #f5c518, #b8622e) border-box;
-  box-shadow: 0 0 16px rgba(245, 197, 24, 0.25);
+    linear-gradient(135deg, rgb(var(--char-rgb, 245, 197, 24)), #b8622e) border-box;
+  box-shadow: 0 0 16px rgba(var(--char-rgb, 245, 197, 24), 0.35);
 }
 
 
