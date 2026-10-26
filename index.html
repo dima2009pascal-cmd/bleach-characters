@@ -426,6 +426,72 @@ body {
     background: rgba(245, 197, 24, 0.15);
   }
 }
+
+.card-front img {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  background: rgba(5, 7, 12, 0.88);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-img {
+  max-width: 92vw;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 0 40px rgba(245, 197, 24, 0.25);
+  transform: scale(0.96);
+  transition: transform 0.25s ease;
+}
+
+.lightbox.open .lightbox-img {
+  transform: scale(1);
+}
+
+.lightbox-caption {
+  color: #f5c518;
+  margin: 14px 0 0;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(245, 197, 24, 0.4);
+  background: rgba(20, 20, 20, 0.9);
+  color: #f5c518;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox, .lightbox-img { transition: none; }
+}
 </style>
 </head>
 <body>
@@ -581,6 +647,12 @@ body {
 </div>
 <button aria-label="Наверх" class="to-top" id="toTop" type="button">↑</button>
 
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрыть">✕</button>
+  <img class="lightbox-img" id="lightboxImg" alt="">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
 <script>
 const cards = Array.from(document.querySelectorAll('.profile'));
 const defaultOrder = cards.slice();
@@ -649,6 +721,42 @@ for (let i = 0; i < PETAL_COUNT; i++) {
   petal.style.animationDelay = '-' + delay + 's';
   petalsContainer.appendChild(petal);
 }
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(src, name) {
+  lightboxImg.src = src;
+  lightboxImg.alt = name;
+  lightboxCaption.textContent = name;
+  lightbox.classList.add('open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+cards.forEach(card => {
+  const img = card.querySelector('.card-front img');
+  img.addEventListener('click', e => {
+    e.stopPropagation();
+    openLightbox(img.src, card.querySelector('h2').textContent);
+  });
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target !== lightboxImg) closeLightbox();
+});
+lightboxClose.addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
 </script>
 </body>
 </html>
